@@ -4,15 +4,11 @@ $.fn.featurify = function(options) {
 var settings = {
 	transition : 750,
 	pause : 5000,
-	directionIn : -1,
+	directionIn : 1,
 	directionOut : -1,
 };
 
 if (options) $.extend(settings, options);
-
-this.each(function() {
-	//
-});
 
 var features = this,
 	featuresWidth = features.width(),
@@ -28,14 +24,16 @@ features.css({
 
 li.hide().first().show();
 
-var featuresHeight = features.height();
+var featuresHeight = ul.height();
 
 ul.css({
 		width: featuresWidth + "px",
 		position: "relative",
-		height: featuresHeight + "px"
+		height: featuresHeight + "px",
 	});
 
+var position = li.first().position();
+	
 li.css({
 		position : "absolute",
 		width: liWidth + "px"
@@ -50,7 +48,7 @@ var loop = function() {
 		first = li.first(),
 		next = first.next();
 
-	first.css("left", "0px")
+	first.css("left", position.left + "px")
 		.show()
 		.clone()
 		.hide()
@@ -73,16 +71,19 @@ var loop = function() {
 
 	next.animate({
 			opacity: 1,
-			left: "0px"
+			left: position.left + "px",
 		},
 		settings.transition);
 
 	setTimeout(function() { on = false; }, settings.transition);
-	t = setTimeout(function() { loop(); }, settings.pause);
+	
+	if (t)
+		t = setTimeout(function() { loop(); }, settings.pause);
 }
 
-ul.hover(function() {
+features.hover(function() {
 		clearTimeout(t);
+		t = undefined;
 	},
 	function() {
 		setTimeout(function() { loop(); }, settings.transition);

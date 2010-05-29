@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Featurify sample</title>
+
+<style type="text/css" media="screen">
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background-color: #ab7;
+}
+
+h1 { 
+	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
+	font-size:35px;
+	text-shadow:-1px -1px 1px rgba(255,255,255,0.5);
+	font-weight:bold;
+	letter-spacing:-2px;
+	color: #241;
+	
+}
+
+h2 { color: #343; }
+
+div { background-color: #efd; margin:20px; }
+
+#sample3 { width: 620px; }
+#sample3 ul { list-style:none;  }
+#sample3 li { font-family: Trebuchet MS, Helvetica, Arial, sans-serif; font-size:50px; color:#363; margin:0px; }
+#sample3 img { vertical-align:middle; margin-right:40px; }
+
+#footer { background-color: transparent; text-shadow:-1px -1px 1px rgba(255,255,255,0.5);	 color: #363; font-weight:bold; }
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="featurify.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#sample1").featurify();
+
+	$("#sample2").featurify({
+		directionIn : 1,
+		directionOut:1,
+		pause:2000
+	});
+	
+	$("#sample3").featurify({
+		directionIn : -1,
+		directionOut: -1,
+		pause:3000,
+		transition:250
+	});
+});
+</script>
+
+</head>
+<body>
+<h1>spread the source : Featurify jQuery plugin</h1>
+
+<h2>Default</h2>
+<div id="sample1">
+	<ul>
+		<li>Something</li>
+		<li>Another thing</li>
+		<li>Ultimate thing</li>
+	</ul>
+</div>
+
+<h2>Speed and directions modified</h2>
+<div id="sample2">
+	<ul>
+		<li>Something</li>
+		<li>Another thing</li>
+		<li>Ultimate thing</li>
+	</ul>
+</div>
+
+<h2>With some styling options and images</h2>
+<div id="sample3">
+	<ul>
+		<li><img src="1_256.png" />Easy</li>
+		<li><img src="2_256.png" />Fast</li>
+		<li><img src="3_256.png" />Cost saving</li>
+	</ul>
+</div>
+
+
+<div id="footer">http://spreadthesource.com</div>
+</body>
+</html>
