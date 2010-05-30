@@ -1,6 +1,11 @@
 (function($) {
 
 $.fn.featurify = function(options) {
+
+var that = this;
+
+$(window).load(function() {
+
 var settings = {
 	transition : 750,
 	pause : 5000,
@@ -10,15 +15,14 @@ var settings = {
 
 if (options) $.extend(settings, options);
 
-var features = this,
-	featuresWidth = features.width(),
-	ul = this.find("ul"),
+var featuresWidth = that.width(),
+	ul = that.find("ul"),
 	li = ul.find("li"),
 	liWidth = li.width(),
 	t = undefined,
 	on = false;
 
-features.css({
+that.css({
 		overflow:"hidden"
 	});
 
@@ -40,11 +44,12 @@ li.css({
 	});
 
 var loop = function() {
+	
 	if (on) return;	
 
 	on = true;
 
-	var li = features.find("li"),
+	var li = that.find("li"),
 		first = li.first(),
 		next = first.next();
 
@@ -81,15 +86,17 @@ var loop = function() {
 		t = setTimeout(function() { loop(); }, settings.pause);
 }
 
-features.hover(function() {
+that.hover(function() {
 		clearTimeout(t);
 		t = undefined;
 	},
 	function() {
-		setTimeout(function() { loop(); }, settings.transition);
+		t = setTimeout(function() { loop(); }, settings.transition);
 	});
 
 t = setTimeout(function() { loop(); }, settings.pause);
+
+});
 
 return this;
 };

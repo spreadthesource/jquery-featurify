@@ -7,32 +7,41 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size:12px;
-	background-color: #ab7;
+	background-color: #F6FFE0;
+	padding:0px;
+	margin:0px;
 }
 
 h1 { 
 	font-family: Trebuchet MS, Helvetica, Arial, sans-serif;
-	font-size:35px;
+	font-size:45px;
 	text-shadow:-1px -1px 1px rgba(255,255,255,0.5);
 	font-weight:bold;
 	letter-spacing:-2px;
 	color: #241;
-	
+	margin-top:0px;
+	padding-top:0px;
 }
 
-h2 { color: #343; }
+h2,h3 { color: #343; margin:10px;}
 
-div { background-color: #efd; margin:20px; }
+a { color: #9b9; }
+
+pre { font-size:12px; }
+
+#header { background-color: #E6EFD0; padding:30px; border-bottom:1px solid #D6DFC0; }
+#intro { font-family: Trebuchet MS, Helvetica, Arial, sans-serif; font-size:20px; font-style:italic; margin:0px; color:#9b9; }
+
+p, .sample {margin:20px; }
+.sample {  background-color: #efd; }
 
 #sample3 { width: 620px; }
 #sample3 ul { list-style:none;  }
 #sample3 li { font-family: Trebuchet MS, Helvetica, Arial, sans-serif; font-size:50px; color:#363; margin:0px; }
 #sample3 img { vertical-align:middle; margin-right:40px; }
-
-#footer { background-color: transparent; text-shadow:-1px -1px 1px rgba(255,255,255,0.5);	 color: #363; font-weight:bold; }
 </style>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="featurify.js"></script>
 
 <script type="text/javascript">
@@ -57,10 +66,21 @@ $(document).ready(function() {
 
 </head>
 <body>
-<h1>spread the source : Featurify jQuery plugin</h1>
 
-<h2>Default</h2>
-<div id="sample1">
+<div id="header">
+<div id="intro"><a href="http://spreadthesource.com">spread the source</a> presents...</div>
+<h1>Featurify jQuery plugin!</h1>
+</div>
+
+<p>
+Extremely easy to use jQuery plugin that allows you to make simple sliders with auto playing and hover managing.
+</p>
+
+<h2>Samples</h2>
+
+<h3>Default</h3>
+<p>By default, featurify will just slide over your list items. If you hover the featurified div, animation will stop.</p>
+<div id="sample1" class="sample">
 	<ul>
 		<li>Something</li>
 		<li>Another thing</li>
@@ -68,8 +88,9 @@ $(document).ready(function() {
 	</ul>
 </div>
 
-<h2>Speed and directions modified</h2>
-<div id="sample2">
+<h3>Speed and directions modified</h3>
+<p>Of course, you can customize it a little by chaging directions and speed</p>
+<div id="sample2" class="sample">
 	<ul>
 		<li>Something</li>
 		<li>Another thing</li>
@@ -77,16 +98,66 @@ $(document).ready(function() {
 	</ul>
 </div>
 
-<h2>With some styling options and images</h2>
-<div id="sample3">
+<h3>With some styling options and images</h3>
+<p>And if you add some CSS and images, it becomes magical!</p>
+<div id="sample3" class="sample">
 	<ul>
-		<li><img src="1_256.png" />Easy</li>
-		<li><img src="2_256.png" />Fast</li>
-		<li><img src="3_256.png" />Cost saving</li>
+		<li><img src="img/1_256.png" />Easy</li>
+		<li><img src="img/2_256.png" />Fast</li>
+		<li><img src="img/3_256.png" />Cost saving</li>
 	</ul>
 </div>
 
 
-<div id="footer">http://spreadthesource.com</div>
+<h2>How to use it?</h2>
+
+<p>Basically you just have to create a div, an ul, a li :</p>
+
+	<pre>	
+	&lt;div id="features"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Something really cool&lt;/li&gt;
+			&lt;li&gt;Another thing cooler&lt;/li&gt;
+			&lt;li&gt;Final awesome thing&lt;/li&gt;
+		&lt;ul&gt;
+	&lt;/div&gt;
+	</pre>
+	
+<p>And then, just do : </p>
+<pre>
+	$("#features").featurify();
+	
+	//or if you want some options
+	$("#features").featurify({ pause:7000, transition: 200 });
+</pre>
+
+<h2>Options</h2>
+
+
+<pre>
+	pause 			// time in milleseconds between each slide
+	transition 		// time in milleseconds that will take the sliding effect
+	directionIn		// left: -1 / right: 1. Direction from where will come the next slide next slide. 
+	directionOut		// left: -1 / right: 1. Direction to where will go the current slide
+</pre>
+
+
+<h2>More Informations & contacts</h2>
+
+<ul>
+	<li><a href="http://spreadthesource.com/sandbox/featurify/featurify.html">Demo</a> : samples and instructions</li>
+	<li><a href="http://github.com/spreadthesource/jquery-featurify">Github</a> : source code, download, and issue tracker</li>
+</ul>
+
+<ul>
+<li><a href="http://spreadthesource.com">Blog</a> : spread the source, the blog!</li>
+<li><a href="http://twitter.com/spreadthesource">Twitter</a></li>
+</ul>
+
+
+<h2>License</h2>
+
+<p>This project is distributed under Apache 2 License.</p>
+
 </body>
 </html>
