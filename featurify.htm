@@ -23,26 +23,26 @@ h1 {
 	padding-top:0px;
 }
 
-h2,h3 { color: #343; margin:10px;}
+h2,h3 { color: #343; }
 
-a { color: #9b9; }
+a { color: #696; }
 
-pre { font-size:12px; }
+pre { font-size:12px; border:1px solid black; padding:10px; background-color:#fff; }
 
-#header { background-color: #E6EFD0; padding:30px; border-bottom:1px solid #D6DFC0; }
+#header { background-color: #E6EFD0; padding:30px; border-bottom:1px solid #D6DFC0;  }
 #intro { font-family: Trebuchet MS, Helvetica, Arial, sans-serif; font-size:20px; font-style:italic; margin:0px; color:#9b9; }
+#wrapper { margin: 30px; }
 
-p, .sample {margin:20px; }
 .sample {  background-color: #efd; }
 
-#sample3 { width: 620px; }
+#sample3 { width: 620px; border:15px solid #fff;  border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;  box-shadow: 0px 0px 10px rgba(47,47,50,0.4); -webkit-box-shadow: 0px 0px 10px rgba(47,47,50,0.4); -moz-box-shadow: 0px 0px 10px rgba(47,47,50,0.4); }
 #sample3 ul { list-style:none;  }
 #sample3 li { font-family: Trebuchet MS, Helvetica, Arial, sans-serif; font-size:50px; color:#363; margin:0px; }
 #sample3 img { vertical-align:middle; margin-right:40px; }
 </style>
 
 <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="featurify.js"></script>
+<script type="text/javascript" src="featurify.min.js"></script>
 
 <script type="text/javascript">
 
@@ -71,6 +71,8 @@ $(document).ready(function() {
 <div id="intro"><a href="http://spreadthesource.com">spread the source</a> presents...</div>
 <h1>Featurify jQuery plugin!</h1>
 </div>
+
+<div id="wrapper">
 
 <p>
 Extremely easy to use jQuery plugin that allows you to make simple sliders with auto playing and hover managing.
@@ -113,32 +115,30 @@ Extremely easy to use jQuery plugin that allows you to make simple sliders with 
 
 <p>Basically you just have to create a div, an ul, a li :</p>
 
-	<pre>	
-	&lt;div id="features"&gt;
-		&lt;ul&gt;
-			&lt;li&gt;Something really cool&lt;/li&gt;
-			&lt;li&gt;Another thing cooler&lt;/li&gt;
-			&lt;li&gt;Final awesome thing&lt;/li&gt;
-		&lt;ul&gt;
-	&lt;/div&gt;
-	</pre>
+	<pre>&lt;div id="features"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Something really cool&lt;/li&gt;
+		&lt;li&gt;Another thing cooler&lt;/li&gt;
+		&lt;li&gt;Final awesome thing&lt;/li&gt;
+	&lt;ul&gt;
+&lt;/div&gt;</pre>
 	
 <p>And then, just do : </p>
 <pre>
-	$("#features").featurify();
-	
-	//or if you want some options
-	$("#features").featurify({ pause:7000, transition: 200 });
+$("#features").featurify();
+
+//or if you want some options
+$("#features").featurify({ pause:7000, transition: 200 });
 </pre>
 
 <h2>Options</h2>
 
 
 <pre>
-	pause 			// time in milleseconds between each slide
-	transition 		// time in milleseconds that will take the sliding effect
-	directionIn		// left: -1 / right: 1. Direction from where will come the next slide 
-	directionOut		// left: -1 / right: 1. Direction to where will go the current slide
+pause 			// time in milleseconds between each slide
+transition 		// time in milleseconds that will take the sliding effect
+directionIn		// left: -1 / right: 1. Direction from where will come the next slide 
+directionOut		// left: -1 / right: 1. Direction to where will go the current slide
 </pre>
 
 
@@ -158,6 +158,6 @@ Extremely easy to use jQuery plugin that allows you to make simple sliders with 
 <h2>License</h2>
 
 <p>This project is distributed under Apache 2 License.</p>
-
+</div>
 </body>
 </html>
